@@ -7,7 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddGoLink(this IServiceCollection services)
         {
-            services.AddScoped<IGoLinkService, GinkService>();
+            services.AddScoped<IGinkService, GinkService>();
 
             services.AddSingleton<IGinkSession, DefaultGinkSession>();
 
@@ -18,7 +18,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IServiceCollection AddGink(this IServiceCollection services, Action<GinkOptions> setupAction)
         {
-            services.AddScoped<IGoLinkService, GinkService>();
+            services.AddScoped<IGinkService, GinkService>();
 
             services.AddSingleton<IGinkSession, DefaultGinkSession>();
 

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Codeping.Gink.Core
 {
-    public interface IGoLinkService
+    public interface IGinkService
     {
         Task<Result<string>> ToShortAsync(string longUrl);
         Task<Result<string>> ToLongAsync(string shortId);

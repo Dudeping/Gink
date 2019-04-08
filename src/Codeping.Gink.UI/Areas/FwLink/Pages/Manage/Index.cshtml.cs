@@ -8,9 +8,9 @@ namespace Codeping.Gink.UI.Areas.FwLink.Pages.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly IGoLinkService _service;
+        private readonly IGinkService _service;
 
-        public IndexModel(IGoLinkService service)
+        public IndexModel(IGinkService service)
         {
             _service = service;
         }

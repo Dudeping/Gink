@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Codeping.Gink.Core
 {
-    internal class GinkService : IGoLinkService
+    internal class GinkService : IGinkService
     {
         private readonly GinkOptions _options;
         private readonly Lazy<IGinkSession> _session;

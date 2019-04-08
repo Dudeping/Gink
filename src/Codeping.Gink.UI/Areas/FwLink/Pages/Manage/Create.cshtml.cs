@@ -7,9 +7,9 @@ namespace Codeping.Gink.UI.Areas.FwLink.Pages.Manage
 {
     public class CreateModel : PageModel
     {
-        private readonly IGoLinkService _service;
+        private readonly IGinkService _service;
 
-        public CreateModel(IGoLinkService service)
+        public CreateModel(IGinkService service)
         {
             _service = service;
         }
