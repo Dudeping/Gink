@@ -22,7 +22,7 @@ namespace Codeping.Gink.Web
             services.AddDbContext<GinkWebContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("GinkWebContext")));
 
-            services.AddGink(options => options.UseSqlServer());
+            services.AddGink().AddSqlServer().AddDefaultUI();
 
             services.AddMvc().AddNewtonsoftJson();
         }

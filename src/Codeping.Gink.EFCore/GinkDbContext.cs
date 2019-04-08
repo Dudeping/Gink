@@ -18,9 +18,9 @@ namespace Codeping.Gink.EFCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Link>(x =>
+            modelBuilder.Entity<Link>(link =>
             {
-                x.HasIndex(x => x.LongUrl);
+                link.HasIndex(x => x.LongUrl);
             });
 
             base.OnModelCreating(modelBuilder);

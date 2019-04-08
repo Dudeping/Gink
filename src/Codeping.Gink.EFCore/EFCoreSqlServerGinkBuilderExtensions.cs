@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Codeping.Gink.Core
 {
-    public static class EFCoreSqlServerGinkOptionsExtensions
+    public static class EFCoreSqlServerGinkBuilderExtensions
     {
-        public static GinkOptions UseSqlServer(this GinkOptions options)
+        public static GinkBuilder AddSqlServer(this GinkBuilder options)
         {
             options.Services.AddScoped<IGinkSession, EFCoreSqlServerGinkSession>();
 

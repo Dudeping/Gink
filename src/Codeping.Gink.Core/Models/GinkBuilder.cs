@@ -1,16 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Codeping.Gink.Core
 {
-    public class GinkOptions
+    public class GinkBuilder
     {
-        internal GinkOptions(IServiceCollection services)
+        internal GinkBuilder(IServiceCollection services)
         {
             this.Services = services;
         }
 
         public IServiceCollection Services { get; }
-        public int RetryNumWhenConfilict { get; set; } = 10;
     }
 }

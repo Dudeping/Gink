@@ -41,7 +41,7 @@ namespace Codeping.Gink.Core
 
         public IQueryable<Link> Get(Predicate<Link> predicate)
         {
-            throw new NotImplementedException();
+            return _shorts.Values.AsQueryable().Where(x => predicate(x));
         }
 
         public async Task<Result<Link>> GetAsync(string shortId)

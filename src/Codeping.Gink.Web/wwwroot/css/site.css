@@ -38,7 +38,7 @@ button.accept-policy {
 -------------------------------------------------- */
 html {
   position: relative;
-  min-height: 100%;
+  min-height: 99.9%;
 }
 
 body {

@@ -7,20 +7,18 @@ namespace Codeping.Gink.Core
 {
     internal class GinkService : IGinkService
     {
-        private readonly GinkOptions _options;
-        private readonly Lazy<IGinkSession> _session;
+        private readonly IGinkSession _session;
 
-        public GinkService(Lazy<IGinkSession> session, GinkOptions options)
+        public GinkService(IGinkSession session)
         {
             _session = session;
-            _options = options;
         }
 
         public async Task<Result<string>> ToLongAsync(string shortId)
         {
             var result = new Result<string>();
 
-            var r = await _session.Value.GetAsync(shortId);
+            var r = await _session.GetAsync(shortId);
 
             if (r.Succeeded)
             {
@@ -30,7 +28,7 @@ namespace Codeping.Gink.Core
                 {
                     link.Total++;
 
-                    await _session.Value.UpdateAsync(link);
+                    await _session.UpdateAsync(link);
 
                     return result.Ok(link.Id);
                 }
@@ -43,17 +41,17 @@ namespace Codeping.Gink.Core
         {
             var result = new Result<string>();
 
-            var r = await _session.Value.HasAsync(longUrl);
+            var r = await _session.HasAsync(longUrl);
 
-            int retry = _options.RetryNumWhenConfilict;
+            int retry = 10;
 
             while (!r.Succeeded && retry > 0)
             {
                 var shortId = RandomEx.GenerateString(6);
 
-                var link = new Link(shortId, longUrl);
+                var link = new Link { Id = shortId, LongUrl = longUrl };
 
-                r = await _session.Value.AddAsync(link);
+                r = await _session.AddAsync(link);
 
                 retry--;
             }
@@ -63,12 +61,12 @@ namespace Codeping.Gink.Core
 
         public async Task<Result> RemoveAsync(string shortId)
         {
-            return await _session.Value.RemoveAsync(shortId);
+            return await _session.RemoveAsync(shortId);
         }
 
         public IQueryable<Link> Where(Predicate<Link> predicate)
         {
-            return _session.Value.Get(predicate);
+            return _session.Get(predicate);
         }
     }
 }
