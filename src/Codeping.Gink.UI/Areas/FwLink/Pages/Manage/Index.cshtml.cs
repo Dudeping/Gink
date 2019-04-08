@@ -17,7 +17,7 @@ namespace Codeping.Gink.UI.Areas.FwLink.Pages.Manage
 
         public IPagedList<Link> Links { get; set; }
 
-        public async Task OnGetAsync(int pageNumber)
+        public async Task OnGetAsync(int pageNumber = 1)
         {
             this.Links = await _service.Where(x => true)
                 .OrderByDescending(x => x.Total)

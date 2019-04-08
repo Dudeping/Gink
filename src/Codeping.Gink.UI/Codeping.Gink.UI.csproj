@@ -2,7 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot/**/*" />
+    <EmbeddedResource Remove="wwwroot/**/LICENSE*" />
+    <None Remove="wwwroot/**/LICENSE*" />
+  </ItemGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -10,6 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="Codeping.Utils.Mvc" Version="0.0.1-alpha" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.0.0-preview3.19153.1" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="7.6.0" />
   </ItemGroup>
 
