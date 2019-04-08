@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Codeping.Utils.Mvc" Version="0.0.1-alpha" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="7.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Codeping.Gink.Core\Codeping.Gink.Core.csproj" />
+    <ProjectReference Include="..\Codeping.Gink.EFCore\Codeping.Gink.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>
